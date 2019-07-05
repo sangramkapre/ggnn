@@ -103,8 +103,8 @@ class GGNN(nn.Module):
                 m.weight.data.normal_(0.0, 0.02)
                 m.bias.data.fill_(0)
 
-        self.in_fcs = AttrProxy(self, 'in_')
-        self.out_fcs = AttrProxy(self, 'out_')
+        self.in_fcs = ListModule(self, 'in_')
+        self.out_fcs = ListModule(self, 'out_')
 
 
     def forward(self, init_hidden_state, annotation, adj_matrix):
